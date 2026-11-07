@@ -1,0 +1,60 @@
+@host = http://localhost:5145
+@json = application/json
+@categoryId = 1
+@foodId = 1
+
+### CATEGORY - create
+POST {{host}}/api/categories
+Content-Type: application/json
+
+{
+  "name": "Minuman"
+}
+
+### CATEGORY - get all
+GET {{host}}/api/categories
+
+### CATEGORY - get by id
+GET {{host}}/api/categories/{{categoryId}}
+
+### CATEGORY - update
+PUT {{host}}/api/categories/{{categoryId}}
+Content-Type: application/json
+
+{
+  "name": "Minuman Dingin"
+}
+
+### FOOD - create
+POST {{host}}/api/foods
+Content-Type: application/json
+
+{
+  "name": "Es Teh",
+  "price": 5000,
+  "stock": 50,
+  "categoryId": {{categoryId}}
+}
+
+### FOOD - get all
+GET {{host}}/api/foods
+
+### FOOD - get by id
+GET {{host}}/api/foods/{{foodId}}
+
+### FOOD - update
+PUT {{host}}/api/foods/{{foodId}}
+Content-Type: application/json
+
+{
+  "name": "Es Teh Manis",
+  "price": 6000,
+  "stock": 40,
+  "categoryId": {{categoryId}}
+}
+
+### FOOD - delete
+DELETE {{host}}/api/foods/{{foodId}}
+
+### CATEGORY - delete (setelah food dihapus)
+DELETE {{host}}/api/categories/{{categoryId}}
